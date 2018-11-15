@@ -1,0 +1,155 @@
+---
+title: "pwfsl-uptime-report"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
+```
+
+# Background
+
+This is a report that assesses the current status of all PWFSL web services
+related to the [PWFSL Monitoring V4](https://tools.airfire.org/monitoring/v4) site.
+
+# Plot Service
+
+San Francisco
+
+ * <https://tools-c2.airfire.org/monitor-plot/v4/plot?databaseversion=4.0&webserviceapi=4.0&plottype=timeseries&monitorid=060750005_01>
+ * <https://tools-c3.airfire.org/monitor-plot/v4/plot?databaseversion=4.0&webserviceapi=4.0&plottype=timeseries&monitorid=060750005_01>
+ * <https://tools-c5.airfire.org/monitor-plot/v4/plot?databaseversion=4.0&webserviceapi=4.0&plottype=timeseries&monitorid=060750005_01>
+
+```{r plot-service}
+# TODO:  Iterate through all servers (i.e. c2, c3, c5)
+# TODO:  Request the product
+# TODO:   * test that the product is of the correct type
+# TODO:   * keep track of response time
+# TODO:   * display table of status/response time
+# TODO:   * could also display images in the table
+# TODO:  
+# TODO:  Thinking ahead, what would be needed to send an alert message to Slack
+# TODO:  if anything failed?
+```
+
+# Map Service
+
+San Francisco
+
+ * <https://tools-c2.airfire.org/monitor-map/v4/monitorlocation?maptype=roadmap&monitorid=060750005_01>
+ * <https://tools-c3.airfire.org/monitor-map/v4/monitorlocation?maptype=roadmap&monitorid=060750005_01>
+ * <https://tools-c5.airfire.org/monitor-map/v4/monitorlocation?maptype=roadmap&monitorid=060750005_01>
+
+```{r map-service}
+# TODO:  Iterate through all servers (i.e. c2, c3, c5)
+# TODO:  Request the product
+# TODO:   * test that the product is of the correct type
+# TODO:   * keep track of response time
+# TODO:   * display table of status/response time
+# TODO:   * could also display images in the table
+# TODO:  
+# TODO:  Thinking ahead, what would be needed to send an alert message to Slack
+# TODO:  if anything failed?
+```
+
+# Data Service
+
+San Francisco
+
+ * <https://tools-c2.airfire.org/monitor-data/v4/data?databaseversion=4.0&webserviceapi=4.0&monitors=060750005_01&outputfiletype=text&lookbackdays=2>
+ * <https://tools-c3.airfire.org/monitor-data/v4/data?databaseversion=4.0&webserviceapi=4.0&monitors=060750005_01&outputfiletype=text&lookbackdays=2>
+ * <https://tools-c5.airfire.org/monitor-data/v4/data?databaseversion=4.0&webserviceapi=4.0&monitors=060750005_01&outputfiletype=text&lookbackdays=2>
+
+```{r data-service}
+# TODO:  Iterate through all servers (i.e. c2, c3, c5)
+# TODO:  Request the product
+# TODO:   * test that the product is of the correct type
+# TODO:   * keep track of response time
+# TODO:   * display table of status/response time
+# TODO:   * could also display images in the table
+# TODO:  
+# TODO:  Thinking ahead, what would be needed to send an alert message to Slack
+# TODO:  if anything failed?
+```
+
+# Data-Report Service
+
+San Francisco
+
+ * <https://tools-c2.airfire.org/monitor-data-report/v4/report?databaseversion=4.0&webserviceapi=4.0&monitors=060750005_01&>
+ * <https://tools-c3.airfire.org/monitor-data-report/v4/report?databaseversion=4.0&webserviceapi=4.0&monitors=060750005_01&>
+ * <https://tools-c5.airfire.org/monitor-data-report/v4/report?databaseversion=4.0&webserviceapi=4.0&monitors=060750005_01&>
+
+```{r data-report-service}
+# TODO:  Iterate through all servers (i.e. c2, c3, c5)
+# TODO:  Request the product
+# TODO:   * test that the product is of the correct type
+# TODO:   * keep track of response time
+# TODO:   * display table of status/response time
+# TODO:   * could also display images in the table
+# TODO:  
+# TODO:  Thinking ahead, what would be needed to send an alert message to Slack
+# TODO:  if anything failed?
+```
+
+# Daily-Hourly Service
+
+San Francisco
+
+*NOTE: This is running on tools-c4*
+
+ * <https://tools-c4.airfire.org/monitor-custom/v1/dailyhourlybarplot?outputfiletype=pdf&lookbackdays=10&monitors=060750005_01&>
+
+
+```{r daily-hourly-service}
+# TODO:  Iterate through all servers (i.e. c2, c3, c5)
+# TODO:  Request the product
+# TODO:   * test that the product is of the correct type
+# TODO:   * keep track of response time
+# TODO:   * display table of status/response time
+# TODO:   * could also display images in the table
+# TODO:  
+# TODO:  Thinking ahead, what would be needed to send an alert message to Slack
+# TODO:  if anything failed?
+```
+
+# QC-Report Service
+
+King’s Canyon temporary monitor
+
+ * <https://tools-c2.airfire.org/monitor-qc-report/v4/airsis?databaseversion=4.0&webserviceapi=4.0&provider=apcd&unitID=1033>
+ * <https://tools-c3.airfire.org/monitor-qc-report/v4/airsis?databaseversion=4.0&webserviceapi=4.0&provider=apcd&unitID=1033>
+ * <https://tools-c5.airfire.org/monitor-qc-report/v4/airsis?databaseversion=4.0&webserviceapi=4.0&provider=apcd&unitID=1033>
+
+
+```{r qc-report-service}
+# TODO:  Iterate through all servers (i.e. c2, c3, c5)
+# TODO:  Request the product
+# TODO:   * test that the product is of the correct type
+# TODO:   * keep track of response time
+# TODO:   * display table of status/response time
+# TODO:   * could also display images in the table
+# TODO:  
+# TODO:  Thinking ahead, what would be needed to send an alert message to Slack
+# TODO:  if anything failed?
+```
+
+# Monitoring UI
+
+ * <https://tools-c2.airfire.org/monitoring/v4>
+ * <https://tools-c3.airfire.org/monitoring/v4>
+ * <https://tools-c5.airfire.org/monitoring/v4>
+ 
+```{r monitoring-ui}
+# TODO:  Iterate through all servers (i.e. c2, c3, c5)
+# TODO:  Request the product
+# TODO:   * test that the product is of the correct type
+# TODO:   * keep track of response time
+# TODO:   * display table of status/response time
+# TODO:   * could also display images in the table
+# TODO:  
+# TODO:  Thinking ahead, what would be needed to send an alert message to Slack
+# TODO:  if anything failed?
+```
+
+

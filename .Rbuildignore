@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^app$
+^docker$
+^local.*$
+^NEWS\.md$
+^\.travis\.yml$

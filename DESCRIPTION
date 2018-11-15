@@ -1,0 +1,31 @@
+Package: MazamaProductionUtils
+Title: Utility Functions to Track Server Performance
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Jonathan", "Callahan", email="jonathan.s.callahan@gmail.com", role=c("aut","cre")),
+    person("Helen", "Miller", email="helen@ohana.org", role=c("ctb"))
+    )
+Author: Jonathan Callahan [aut, cre],
+    Helen Miller [ctb] 
+Maintainer: Jonathan Callahan <jonathan.s.callahan@gmail.com>
+Description: A suite of utility functions to monitor host servers and docker
+    containers used in production.
+Depends: R (>= 3.5),
+    dplyr
+Imports:
+    lubridate,
+    readr,
+    rlang,
+    stringr,
+    sys,
+    magrittr
+Suggests:
+    knitr,
+    markdown,
+    testthat,
+    rmarkdown
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.0
