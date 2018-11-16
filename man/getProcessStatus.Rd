@@ -4,7 +4,10 @@
 \alias{getProcessStatus}
 \title{Return process status information}
 \usage{
-getProcessStatus()
+getProcessStatus(psPath = "/bin/ps")
+}
+\arguments{
+\item{psPath}{Full path of the \code{ps} command.}
 }
 \value{
 A dataframe of information from the \code{ps} command.

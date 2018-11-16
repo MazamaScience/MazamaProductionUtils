@@ -2,6 +2,8 @@
 #'
 #' @title Return process status information
 #'
+#' @param psPath Full path of the \code{ps} command.
+#'
 #' @return A dataframe of information from the \code{ps} command.
 #'
 #' @description Returns a dataframe of information from the \code{ps} command.
@@ -31,7 +33,7 @@
 #' head(long_running)
 #' }
 
-getProcessStatus <- function() {
+getProcessStatus <- function(psPath = "/bin/ps") {
 
   # TODO: try blocks and error handling
 
@@ -58,7 +60,7 @@ getProcessStatus <- function() {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal("ps", "-axo pid,ppid,pgid,pcpu,pmem")
+  ps_raw <- sys::exec_internal(psPath, "-axo pid,ppid,pgid,pcpu,pmem")
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7,13,19,25),
@@ -81,7 +83,7 @@ getProcessStatus <- function() {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal("ps", "-axo pid,uid,user")
+  ps_raw <- sys::exec_internal(psPath, "-axo pid,uid,user")
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7,13),
@@ -104,7 +106,7 @@ getProcessStatus <- function() {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal("ps", "-axo pid,command")
+  ps_raw <- sys::exec_internal(psPath, "-axo pid,command")
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7),
@@ -129,7 +131,7 @@ getProcessStatus <- function() {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal("ps", "-axo pid,cputime")
+  ps_raw <- sys::exec_internal(psPath, "-axo pid,cputime")
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7),
@@ -173,7 +175,7 @@ getProcessStatus <- function() {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal("ps", "-axo pid,etime")
+  ps_raw <- sys::exec_internal(psPath, "-axo pid,etime")
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7),
