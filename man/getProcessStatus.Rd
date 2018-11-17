@@ -29,7 +29,7 @@ cpu_hogs <- getProcessStatus() \%>\%
 head(cpu_hogs)
 
 # Long processes
-long_running <- ps_DF \%>\%
+long_running <- getProcessStatus() \%>\%
   select(user, esecs, pid, command) \%>\%
   filter(user != "root") \%>\%
   arrange(desc(esecs))

@@ -25,7 +25,7 @@
 #' head(cpu_hogs)
 #'
 #' # Long processes
-#' long_running <- ps_DF %>%
+#' long_running <- getProcessStatus() %>%
 #'   select(user, esecs, pid, command) %>%
 #'   filter(user != "root") %>%
 #'   arrange(desc(esecs))
@@ -60,7 +60,7 @@ getProcessStatus <- function(psPath = "/bin/ps") {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal(psPath, "-axo pid,ppid,pgid,pcpu,pmem")
+  ps_raw <- sys::exec_internal(psPath, c("-axo","pid,ppid,pgid,pcpu,pmem"))
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7,13,19,25),
@@ -83,7 +83,7 @@ getProcessStatus <- function(psPath = "/bin/ps") {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal(psPath, "-axo pid,uid,user")
+  ps_raw <- sys::exec_internal(psPath, c("-axo","pid,uid,user"))
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7,13),
@@ -106,7 +106,7 @@ getProcessStatus <- function(psPath = "/bin/ps") {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal(psPath, "-axo pid,command")
+  ps_raw <- sys::exec_internal(psPath, c("-axo","pid,command"))
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7),
@@ -131,7 +131,7 @@ getProcessStatus <- function(psPath = "/bin/ps") {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal(psPath, "-axo pid,cputime")
+  ps_raw <- sys::exec_internal(psPath, c("-axo","pid,cputime"))
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7),
@@ -175,7 +175,7 @@ getProcessStatus <- function(psPath = "/bin/ps") {
   #<123456789012345678901234567890>
   #<         111111111122222222223>
 
-  ps_raw <- sys::exec_internal(psPath, "-axo pid,etime")
+  ps_raw <- sys::exec_internal(psPath, c("-axo","pid,etime"))
   ps_char <- base::rawToChar(ps_raw$stdout)
   col_positions <- readr::fwf_positions(
     start = c(1,7),

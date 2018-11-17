@@ -5,7 +5,7 @@
 # This script is desgined to be run on demand as a cron job or 'at' job, see the
 # example below
 
-# 1 2 3 4 5 /Users/jonathan/Projects/PWFSL/monitoring-data-ingest-v4/cpuHogs_exec.R --year=2017 --month=01 --outputDir=/Users/jonathan/Data/AirNow/RData --logDir=/Users/jonathan/Data/AirNow/RData
+# 1 2 3 4 5 /Users/jonathan/Projects/PWFSL/monitoring-data-ingest-v4/cpu_hogs_exec.R --year=2017 --month=01 --outputDir=/Users/jonathan/Data/AirNow/RData --logDir=/Users/jonathan/Data/AirNow/RData
 
 # You can test things by firing up the docker image interactively with bash and
 # then Running R and testing this script a few lines at a time:
@@ -48,7 +48,7 @@ if ( FALSE ) {
 
 # Print out version and quit
 if ( opt$version ) {
-  cat(paste0('cpuHogs_exec.R ',VERSION,'\n'))
+  cat(paste0('cpu_hogs_exec.R ',VERSION,'\n'))
   quit()
 }
 
@@ -61,9 +61,9 @@ dir.create(opt$outputDir, recursive=TRUE, showWarnings=FALSE)
 dir.create(opt$logDir, recursive=TRUE, showWarnings=FALSE)
 
 # Assign log file names
-debugLog <- file.path(opt$logDir, 'cpuHogs_DEBUG.log')
-infoLog  <- file.path(opt$logDir, 'cpuHogs_INFO.log')
-errorLog <- file.path(opt$logDir, 'cpuHogs_ERROR.log')
+debugLog <- file.path(opt$logDir, 'cpu_hogs_DEBUG.log')
+infoLog  <- file.path(opt$logDir, 'cpu_hogs_INFO.log')
+errorLog <- file.path(opt$logDir, 'cpu_hogs_ERROR.log')
 
 # Set up logging
 logger.setup(debugLog=debugLog, infoLog=infoLog, errorLog=errorLog)
@@ -71,7 +71,7 @@ logger.setup(debugLog=debugLog, infoLog=infoLog, errorLog=errorLog)
 # Silence other warning messages
 options(warn=-1) # -1=ignore, 0=save/print, 1=print, 2=error
 
-logger.info('Running cpuHogs_exec.R version %s',VERSION)
+logger.info('Running cpu_hogs_exec.R version %s',VERSION)
 sessionString <- paste(capture.output(sessionInfo()), collapse='\n')
 logger.debug('R session:\n\n%s\n', sessionString)
 

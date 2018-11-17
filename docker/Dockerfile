@@ -4,7 +4,6 @@ MAINTAINER Jonathan Callahan <jonathan@mazamascience.com>
 ################################################################################
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    apt-utils \
     procps \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/ \

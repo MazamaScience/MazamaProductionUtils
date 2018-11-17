@@ -1,11 +1,11 @@
-BASE_PATH:=$(realpath ..)
+BASE_PATH:=$(realpath .)
 
-clean:
-	rm -rf logs output ../R ../data ../pptx
+# crontab version:
+# docker run --rm -v $(BASE_PATH):/app -w /app docker run production-utils /app/cpuHogs_exec.R
 
-create_dirs:
-	- mkdir logs
-	- mkdir output
+cpu_hogs:
+	docker run --rm -v $(BASE_PATH):/app \
+	-w /app \
+	docker run production-utils /app/cpuHogs_exec.R
 
-cpu_hogs: create_dirs
-	docker run production-utils cpuHogs_exec.R
+
